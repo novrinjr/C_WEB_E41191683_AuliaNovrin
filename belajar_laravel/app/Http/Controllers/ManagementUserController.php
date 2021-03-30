@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class ManagementUserController extends Controller
 {
+    //disini isi controller management
     public function index(){
     return "Method ini nantinya akan digunakan untuk mengambil semua data user.";
     }
