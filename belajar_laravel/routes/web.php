@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ManagementUserController;
@@ -26,3 +27,4 @@ Route::get('/edit',[ManagementUserController::class, 'edit']);
 Route::get('/update',[ManagementUserController::class, 'update']);
 Route::get('/destroy',[ManagementUserController::class, 'destroy']);
 Route::get('/home',[HomeController::class, 'index']);
+Route::get('/admin',[DashboardController::class, 'index']);
