@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManagementUserController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Routing\RouteGroup;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,13 @@ Route::get('/update',[ManagementUserController::class, 'update']);
 Route::get('/destroy',[ManagementUserController::class, 'destroy']);
 Route::get('/home',[HomeController::class, 'index']);
 Route::get('/admin',[DashboardController::class, 'index']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('statusAdmin');
+Route::get('/error', function(){
+    return view ('error');
+})->name('error');
